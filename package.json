@@ -1,0 +1,21 @@
+{
+  "name": "director-client",
+  "author": "Nodejitsu Inc. <info@nodejitsu.com>",
+  "maintainers": [
+    "marak <marak@nodejitsu.com>"
+  ],  
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flatiron/director-client.git"
+  },
+  "main": "./lib/director-client",
+  "dependencies": {
+    "traverse": "0.6.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
