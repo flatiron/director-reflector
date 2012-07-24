@@ -17,14 +17,14 @@ Director-Client makes the least amount of assumptions possible about your applic
 
 # Installation
 
-     npm install director-client
+     npm install director-reflector
 
 # Usage
 
 ```js
 
 var director = require('director'),
-    dc       = require('director-client'),
+    dc       = require('director-reflector'),
     router   = new director.http.Router();
 
 router.get('/foo', function(){});

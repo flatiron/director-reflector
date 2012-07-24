@@ -1,5 +1,5 @@
 /*
- * director-client-api-test.js: Tests for `restful` core api
+ * director-reflector-api-test.js: Tests for `restful` core api
  *
  * (C) 2012, Nodejitsu Inc.
  *
@@ -8,7 +8,7 @@
 var assert = require('assert'),
     vows = require('vows'),
     server = require('../examples/server'),
-    dc = require('../lib/director-client');
+    dc = require('../lib/director-reflector');
 
 var _server, _client;
 
@@ -72,8 +72,8 @@ var mappings = {
 
 };
 
-vows.describe('director-client/api').addBatch({
-  'When using `director-client`': {
+vows.describe('director-reflector/api').addBatch({
+  'When using `director-reflector`': {
     'creating a new http server with a `Director.Router` with one resource': {
       topic: function () {
         _server = server.start();

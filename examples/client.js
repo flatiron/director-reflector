@@ -1,4 +1,4 @@
-var dc       = require('../lib/director-client'),
+var dc       = require('../lib/director-reflector'),
     director = require('director');
 
 var server = require('./server');

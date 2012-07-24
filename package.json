@@ -1,5 +1,5 @@
 {
-  "name": "director-client",
+  "name": "director-reflector",
   "author": "Nodejitsu Inc. <info@nodejitsu.com>",
   "maintainers": [
     "marak <marak@nodejitsu.com>"
@@ -7,9 +7,9 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/flatiron/director-client.git"
+    "url": "git://github.com/flatiron/director-reflector.git"
   },
-  "main": "./lib/director-client",
+  "main": "./lib/director-reflector",
   "dependencies": {
     "traverse": "0.6.1"
   },
