@@ -22,7 +22,7 @@ Director-Client makes the least amount of assumptions possible about your applic
 ```js
 
 var director = require('director'),
-    dc       = require('director-client),
+    dc       = require('director-client'),
     router   = new director.http.Router();
 
 router.get('/foo', function(){});
