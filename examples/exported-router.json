@@ -1,19 +1,44 @@
 {
-    "foo": {},
-    "bar": {},
-    "moo": {},
-    "albums": {
-        "([._a-zA-Z0-9-]+)": {
-            "songs": {
-                "([._a-zA-Z0-9-]+)": {}
+    "routes": {
+        "foo": {
+            "get": {}
+        },
+        "bar": {
+            "post": {}
+        },
+        "moo": {
+            "get": {},
+            "post": {},
+            "delete": {},
+            "put": {}
+        },
+        "albums": {
+            "([._a-zA-Z0-9-]+)": {
+                "post": {},
+                "get": {},
+                "songs": {
+                    "([._a-zA-Z0-9-]+)": {
+                        "post": {},
+                        "get": {}
+                    }
+                }
             }
-        }
-    },
-    "users": {
-        "([._a-zA-Z0-9-]+)": {
-            "eat": {},
-            "dongles": {
-                "([._a-zA-Z0-9-]+)": {}
+        },
+        "users": {
+            "([._a-zA-Z0-9-]+)": {
+                "post": {},
+                "get": {},
+                "delete": {},
+                "put": {},
+                "eat": {
+                    "post": {}
+                },
+                "dongles": {
+                    "([._a-zA-Z0-9-]+)": {
+                        "get": {},
+                        "post": {}
+                    }
+                }
             }
         }
     }
