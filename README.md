@@ -2,7 +2,7 @@
 
 # Director-Reflector
 
-Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers for pre-existing [Director](http://github.com/flatiron/director) routers. Requires **no**  configuration and is compatible with any `Director.Router` instance.
+Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers from [Director](http://github.com/flatiron/director) routers. Requires **no** additional configuration and is compatible with any `Director.Router` instance.
 
 # Explanation
 
@@ -10,7 +10,7 @@ Director-Reflector removes the process of writing boilerplate client code for co
 
 Through the removal of this boilerplate code, Director-Reflector creates a robust, standardized, and re-usable Director client API wrapper base for any [Director](http://github.com/flatiron/director) router.
 
-**Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects, is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
+**Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
 
 
 # Installation
@@ -49,9 +49,9 @@ client.foo(function(err, res, body){
 
 In most cases, it's not secure to expose your entire Router instance to the client.
 
-**Have no fear! Director routing maps can safety be serialized without exposing any protected logic.**
+Have no fear! Director routing maps can safety be serialized without exposing any protected logic.
 
-Run the following code and you'll have a portable ( and safe ) routing map as JSON:
+**Run the following code to export a portable ( and safe ) routing map as JSON:**
 
 ```js
 var router = {
