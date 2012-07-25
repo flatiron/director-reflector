@@ -21,22 +21,48 @@ Director-reflector makes the least amount of assumptions possible about your app
 
 # Usage
 
+### Creating a Director router
+
 ```js
 
 var director = require('director'),
-    dc       = require('director-reflector'),
     router   = new director.http.Router();
 
-router.get('/foo', function(){});
-
-var client = dc.createClient(router);
-
-client.foo(function(err, res, body){
-  
-})
-
+router.get('/foo', function(){
+  this.res.end('hello');
+});
 
 ```
+### Creating a new API client from a Director router
+
+
+```js
+
+var dr = require('director-reflector'),
+
+var client = dr.createClient(router);
+
+client.foo(function(err, res, body){
+  console.log(body);
+})
+```
+
+### Making your Director router portable
+
+In most cases, it's not secure to expose your entire Router instance to the client.
+
+**Have no fear! Director routing maps can safety be serialized without exposing any protected logic.**
+
+Run the following code and you'll have a portable ( and safe ) routing map as JSON:
+
+```js
+var router = {
+  routes: JSON.stringify(server.router.routes)
+};
+```
+
+Here is an example of [an exported routing map](https://github.com/flatiron/director-reflector/blob/master/examples/exported-router.json).
+
 
 ## Default Mappings
 
