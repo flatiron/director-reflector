@@ -2,7 +2,7 @@
 
 # Director-Reflector
 
-Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers from [Director](http://github.com/flatiron/director) routers. Requires **no** additional configuration and is compatible with any `Director.Router` instance.
+Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers from [Director](http://github.com/flatiron/director) routers. Requires **no** additional configuration and is compatible with any existing `Director.Router` instance.
 
 # Explanation
 
