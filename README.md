@@ -1,16 +1,16 @@
 # Unreleased / Experimental v0.0.0
 
-# Director-reflector
+# Director-Reflector
 
 Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers for pre-existing [Director](http://github.com/flatiron/director) routers. Requires **no**  configuration and is compatible with any `Director.Router` instance.
 
 # Explanation
 
-Director-reflector removes the process of writing boilerplate client code for communicating with HTTP [Director](http://github.com/flatiron/director) routers. Director-reflector uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect an API client which maps all remote routes to a local object and method calls.
+Director-Reflector removes the process of writing boilerplate client code for communicating with HTTP [Director](http://github.com/flatiron/director) routers. Director-Reflector uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect an API client which maps all remote routes to a local object and method calls.
 
-Through the removal of this boilerplate code, Director-reflector creates a robust, standardized, and re-usable Director client API wrapper base for any [Director](http://github.com/flatiron/director) router.
+Through the removal of this boilerplate code, Director-Reflector creates a robust, standardized, and re-usable Director client API wrapper base for any [Director](http://github.com/flatiron/director) router.
 
-**Note**: Director-reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects, is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
+**Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects, is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
 
 
 # Installation
