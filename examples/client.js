@@ -1,9 +1,9 @@
-var dc       = require('../lib/director-reflector'),
+var dr       = require('../lib/director-reflector'),
     director = require('director');
 
 var server = require('./server');
 
-var client = dc.createClient(server.router);
+var client = dr.createClient(server.router);
 
 //
 // Generic callback handler
@@ -19,12 +19,12 @@ var callback = function (err, res, body) {
 //
 // Call random method foobar
 //
-client.foobar(callback);
+client.foo(callback);
 
 //
 // Call random method foobar with some data
 //
-client.foobar({ cake: true }, callback);
+client.bar({ cake: true }, callback);
 
 //
 // Get all users
