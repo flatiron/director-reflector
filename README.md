@@ -47,7 +47,7 @@ client.foo(function(err, res, body){
 
 ### Making your Director router portable
 
-In most cases, it's *not* going to secure to expose your entire Router instance to the client.
+In most cases, it's *not* going to be feasible to expose the entire Router instance to the client.
 
 Have no fear! [Director](http://github.com/flatiron/director) routing maps can safety be serialized without exposing any protected logic.
 
