@@ -47,16 +47,18 @@ client.foo(function(err, res, body){
 
 ### Making your Director router portable
 
-In most cases, it's not secure to expose your entire Router instance to the client.
+In most cases, it's *not* going to secure to expose your entire Router instance to the client.
 
-Have no fear! Director routing maps can safety be serialized without exposing any protected logic.
+Have no fear! [Director](http://github.com/flatiron/director) routing maps can safety be serialized without exposing any protected logic.
 
 **Run the following code to export a portable ( and safe ) routing map as JSON:**
 
 ```js
-var router = {
-  routes: JSON.stringify(server.router.routes)
-};
+var str    = dr.toJSON(router);
+
+// Somewhere else, where `router` instance is not available
+dr.createClient(JSON.parse(str));
+
 ```
 
 Here is an example of [an exported routing map](https://github.com/flatiron/director-reflector/blob/master/examples/exported-router.json).
