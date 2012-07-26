@@ -17,6 +17,54 @@ Through the removal of this boilerplate code, Director-Reflector creates a robus
 
      npm install director-reflector
 
+## Default Client Mappings
+
+**If only one verb is bound to the route, the route name becomes the method name.**
+
+```
+router.get('/foo')                          =>  client.foo()
+router.post('/bar')                         =>  client.bar()
+```
+
+**If multiple verbs are bound to the route, each verb becomes a method with a restful name.**
+
+```
+router.get('/moo')                          =>  client.moo.get()
+router.post('/moo')                         =>  client.moo.create()
+router.delete('/moo')                       =>  client.moo.destroy()
+router.put('/moo')                          =>  client.moo.save()
+```
+
+**If route parameters are used ( such as an id ), they become the last method's first argument.**
+
+```
+router.post('/albums/:albumid')             =>  client.albums.create('ill-communication', { artist: "beastie boys" })
+router.get('/albums/:albumid')              =>  client.albums.get('ill-communication')
+```
+
+**If multiple route parameters are used, the parameters curry as arguments in the last method from left-to-right.**
+
+```
+router.post('/albums/:albumid/songs/:id')   =>  client.albums.songs.create('ill-communication', 'root-down', data)
+router.get('/albums/:albumid/songs/:id')    =>  client.albums.songs.get('ill-communication', 'root-down')
+```
+
+**Nested routing scopes follow the same rules.**
+
+```
+router.path('/users', function(){             
+ this.path('/:id', function(){               
+   this.post(n);                           => client.users.create('bob', data)
+   this.get(n);                            => client.users.get('bob')
+   this.delete(n);                         => client.users.destroy('bob')
+   this.put(n);                            => client.users.save('bob', data)
+   this.path('/dongles/:id', function(){
+     this.post(n);                         => client.users.dongles.create('bob', 'the-dongle', data)
+     this.get(n);                          => client.users.dongles('bob', 'the-dongle');
+ })
+});
+```
+
 # Usage
 
 ### Creating a Director router
@@ -64,53 +112,7 @@ dr.createClient(JSON.parse(str));
 Here is an example of [an exported routing map](https://github.com/flatiron/director-reflector/blob/master/examples/exported-router.json).
 
 
-## Default Mappings
 
-**If only one verb is bound to the route, the route name becomes the method name.**
-
-```
-router.get('/foo')                          =>  client.foo()
-router.post('/bar')                         =>  client.bar()
-```
-
-**If multiple verbs are bound to the route, each verb becomes a method with a restful name.**
-
-```
-router.get('/moo')                          =>  client.moo.get()
-router.post('/moo')                         =>  client.moo.create()
-router.delete('/moo')                       =>  client.moo.destroy()
-router.put('/moo')                          =>  client.moo.save()
-```
-
-**If route parameters are used ( such as an id ), they become the last method's first argument.**
-
-```
-router.post('/albums/:albumid')             =>  client.albums.create('ill-communication', { artist: "beastie boys" })
-router.get('/albums/:albumid')              =>  client.albums.get('ill-communication')
-```
-
-**If multiple route parameters are used, the parameters curry as arguments in the last method from left-to-right.**
-
-```
-router.post('/albums/:albumid/songs/:id')   =>  client.albums.songs.create('ill-communication', 'root-down', data)
-router.get('/albums/:albumid/songs/:id')    =>  client.albums.songs.get('ill-communication', 'root-down')
-```
-
-**Nested routing scopes follow the same rules.**
-
-```
-router.path('/users', function(){             
-  this.path('/:id', function(){               
-    this.post(n);                           => client.users.create('bob', data)
-    this.get(n);                            => client.users.get('bob')
-    this.delete(n);                         => client.users.destroy('bob')
-    this.put(n);                            => client.users.save('bob', data)
-    this.path('/dongles/:id', function(){
-      this.post(n);                         => client.users.dongles.create('bob', 'the-dongle', data)
-      this.get(n);                          => client.users.dongles('bob', 'the-dongle');
-  })
-});
-```
 
 # TODO
 
