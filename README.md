@@ -6,14 +6,14 @@ Reflects [request](https://github.com/mikeal/request) based HTTP client API wrap
 
 # Explanation
 
-Director-Reflector removes the process of writing boilerplate client code for communicating with HTTP [Director](http://github.com/flatiron/director) routers. Director-Reflector uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect an API client which maps all remote routes to a local object and method calls.
+Director-Reflector removes the process of writing boilerplate client code for communicating with HTTP [Director](http://github.com/flatiron/director) routers. Director-Reflector uses <a href="http://en.wikipedia.org/wiki/Reflection_(computer_programming)">reflection</a> to reflect an API client which maps all remote routes to a local object.
 
-Through the removal of this boilerplate code, Director-Reflector creates a robust, standardized, and re-usable Director client API wrapper base for any [Director](http://github.com/flatiron/director) router.
+Through the removal of writing boilerplate HTTP API client REST mappings for remote [Director](http://github.com/flatiron/director) routers, Director-Reflector creates a robust, standardized, and re-usable HTTP API client.
 
-**Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
+**Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects is designed to be **as minimalistic as possible**. The default client will cover **all** routes in any Director routing map out of the box, but you are encouraged to extend the reflected base client with your own personal sugar-syntax. 
 
 
-## Default Client Mappings
+## Default API Client Mappings
 
 **If only one verb is bound to the route, the route name becomes the method name.**
 
