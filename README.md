@@ -13,10 +13,6 @@ Through the removal of this boilerplate code, Director-Reflector creates a robus
 **Note**: Director-Reflector makes the least amount of assumptions possible about your application. The API client wrapper it reflects is designed to be **as minimalistic as possible**. The default client will cover all routes out of the box, but **you are encouraged to extend the reflected base client with your own personal sugar-syntax**. 
 
 
-# Installation
-
-     npm install director-reflector
-
 ## Default Client Mappings
 
 **If only one verb is bound to the route, the route name becomes the method name.**
@@ -64,6 +60,10 @@ router.path('/users', function(){
  })
 });
 ```
+
+# Installation
+
+     npm install director-reflector
 
 # Usage
 
