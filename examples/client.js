@@ -3,6 +3,14 @@ var dr       = require('../lib/director-reflector'),
 
 var server = require('./server');
 
+var server = require('./server');
+server.start();
+
+
+//
+// Remark: `server.router` doesn't have to exist in this scope.
+// You can also pass in a stringified routing map from anywhere
+//
 var client = dr.createClient(server.router);
 
 //

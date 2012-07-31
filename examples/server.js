@@ -4,14 +4,23 @@ var http = require('http'),
 var router = exports.router = new director.http.Router();
 
 //
-// simple respond method that echos back the request
+// Simple respond method that echos back the request
 //
 var n = function(){
   var self = this,
   req = self.req,
   res = self.res;
-  
-  var rsp = { url: req.url, data: req.body, method: req.method };
+
+  //
+  // Create a response that echos back parsed HTTP information
+  //
+  var rsp = { 
+    url: req.url, 
+    data: req.body, 
+    method: req.method, 
+    headers: req.headers 
+  };
+
   res.end(JSON.stringify(rsp));
 };
 
@@ -57,8 +66,9 @@ router.path('/users', function(){
   })
 });
 
-exports.start = function(){
+exports.start = function(port){
   var server;
+  port = port || 8000;
   server = http.createServer(function(req, res){
     req.chunks = [];
     req.on('data', function (chunk) {
@@ -69,7 +79,7 @@ exports.start = function(){
         res.end('404');
       }
     });
-  }).listen(8001);
+  }).listen(port);
   return server;
   console.log(' > http server started on port 8001')
 }
