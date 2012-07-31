@@ -7,41 +7,11 @@
 
 var assert = require('assert'),
     vows = require('vows'),
+    macros = require('./macros'),
     server = require('../examples/server'),
     dc = require('../lib/director-reflector');
 
 var _server, _client;
-
-function runRoutes () {
-  var suite = {};
-  Object.keys(mappings).forEach(function(key){
-    var args = mappings[key].args,
-        expected = mappings[key].expected;
-    suite[key + '("' + args.join('","')+ '")'] = {
-      topic: function () {
-        var method = key;
-        method = eval(key);
-        args.push(this.callback);
-        method.apply(undefined, args);
-      },
-      'should not error': function (err, result) {
-        assert.isNull(err);
-      },
-      'should return valid json': function (err, res, body) {
-        var result = JSON.parse(body);
-        assert.isObject(result);
-      },
-      'should echo back arguments': function (err, res, body) {
-        var result = JSON.parse(body);
-        assert.isObject(result);
-        assert.equal(result.url, expected.url)
-        assert.equal(result.method, expected.method)
-        assert.equal(result.data, expected.data)
-      }
-    };
-  });
-  return suite;
-}
 
 var mappings = {
 
@@ -76,7 +46,7 @@ vows.describe('director-reflector/api').addBatch({
   'When using `director-reflector`': {
     'creating a new http server with a `Director.Router` with one resource': {
       topic: function () {
-        _server = server.start();
+        _server = server.start(8000);
         this.callback(null, _server);
       },
       'should return a routing map': function (err, _server) {
@@ -90,9 +60,8 @@ vows.describe('director-reflector/api').addBatch({
       },
       'should return a client': function (err, _client) {
         assert.isObject(_client);
-      }
+      },
+      'with created api client' : macros.executeAPICalls(mappings)
     }
   }
-}).addBatch({
-  'When using a Director client - ': runRoutes()
 }).export(module);
