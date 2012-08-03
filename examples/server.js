@@ -10,15 +10,16 @@ var n = function(){
   var self = this,
   req = self.req,
   res = self.res;
+  req.body = req.body || {};
 
   //
   // Create a response that echos back parsed HTTP information
   //
   var rsp = { 
     url: req.url, 
-    data: req.body, 
+    data: req.body,
     method: req.method, 
-    headers: req.headers 
+    headers: req.headers
   };
 
   res.end(JSON.stringify(rsp));

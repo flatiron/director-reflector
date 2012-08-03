@@ -27,7 +27,9 @@ macros.executeAPICalls = function (mappings) {
         assert.isObject(result);
         assert.equal(result.url, expected.url)
         assert.equal(result.method, expected.method)
-        assert.equal(result.data, expected.data)
+        if(result.data && expected.data) {
+          assert.equal(result.data.length, expected.data.length)
+        }
         if(typeof expected.headers === "object") {
           Object.keys(expected.headers).forEach(function(header){
             assert.equal(result.headers[header], expected.headers[header])

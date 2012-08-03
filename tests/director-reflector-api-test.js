@@ -26,9 +26,17 @@ var mappings = {
   "_client.albums.create"         : { args: ['ill-communication'], expected : { url: "/albums/ill-communication", method: "POST", data: null }},
   "_client.albums.get"            : { args: ['ill-communication'], expected : { url: "/albums/ill-communication", method: "GET", data: null }},
 
-  "_client.albums.songs.create"   : { args: ['ill-communication', 'root-down'], expected : { url: "/albums/ill-communication/songs/root-down", method: "POST", data: null }},
-  "_client.albums.songs.get"      : { args: ['ill-communication', 'root-down'], expected : { url: "/albums/ill-communication/songs/root-down", method: "GET", data: null }},
-
+  "_client.albums.songs.create"   : { args: ['ill-communication', 'root-down', { length: "3:32" }], expected : {
+    url: "/albums/ill-communication/songs/root-down",
+    method: "POST",
+    data: {
+      length: '3:32'
+    }
+   }},
+  "_client.albums.songs.get"      : { args: ['ill-communication', 'root-down'], expected : {
+    url: "/albums/ill-communication/songs/root-down",
+    method: "GET"
+  }},
 
   "_client.users.create"          : { args: ['bob'], expected : { url: "/users/bob", method: "POST", data: null }},
   "_client.users.get"             : { args: ['bob'], expected : { url: "/users/bob", method: "GET", data: null }},
