@@ -15,10 +15,10 @@ var n = function(){
   //
   // Create a response that echos back parsed HTTP information
   //
-  var rsp = { 
-    url: req.url, 
+  var rsp = {
+    url: req.url,
     data: req.body,
-    method: req.method, 
+    method: req.method,
     headers: req.headers
   };
 
@@ -51,15 +51,15 @@ router.path('/users', function(){
 
   /*
   this.post(n);
-  this.get(n);   
+  this.get(n);
   */
   this.path('/:id', function(){
-    this.post(n);   
-    this.get(n);    
-    this.delete(n); 
+    this.post(n);
+    this.get(n);
+    this.delete(n);
     this.put(n);
     this.post('/eat', n);
-    
+
     this.path('/dongles/:id', function(){
       this.get(n);
       this.post(n);

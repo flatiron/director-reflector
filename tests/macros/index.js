@@ -3,7 +3,7 @@ var assert = require('assert');
 var macros = exports;
 
 macros.executeAPICalls = function (mappings) {
-  
+
   var suite = {};
   Object.keys(mappings).forEach(function(key){
     var args = mappings[key].args,
@@ -39,5 +39,5 @@ macros.executeAPICalls = function (mappings) {
     };
   });
   return suite;
-  
+
 }

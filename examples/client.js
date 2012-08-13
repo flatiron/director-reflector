@@ -45,7 +45,7 @@ client.users(callback);
 client.users.create({ id: "bob" }, callback);
 
 //
-// Get bob 
+// Get bob
 //
 client.users("bob", callback);
 
