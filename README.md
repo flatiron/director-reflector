@@ -1,5 +1,3 @@
-# Unreleased / Experimental v0.0.0
-
 # Director-Reflector
 
 Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers from [Director](http://github.com/flatiron/director) routers. Requires **no** additional configuration and is compatible with any existing `Director.Router` instance.
@@ -110,9 +108,6 @@ dr.createClient(JSON.parse(str));
 ```
 
 Here is an example of [an exported routing map](https://github.com/flatiron/director-reflector/blob/master/examples/exported-router.json).
-
-
-
 
 # TODO
 
