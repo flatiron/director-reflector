@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/flatiron/director-reflector.png)](http://travis-ci.org/flatiron/director-reflector)
 # Director-Reflector
 
 Reflects [request](https://github.com/mikeal/request) based HTTP client API wrappers from [Director](http://github.com/flatiron/director) routers. Requires **no** additional configuration and is compatible with any existing `Director.Router` instance.
